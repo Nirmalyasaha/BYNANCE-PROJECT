@@ -26,9 +26,13 @@ export default function HomePage() {
 
   return (
 <Wraper>
+
+
+<Typography sx={{textAlign:"center", fontSize:"30px", color:"black",marginBottom:"20px"}}>Welcome To Crypto</Typography>
+      
   
     <TableContainer sx={{textAlign:"2px solid black",}} >
-      <Table >
+      <Table sx={{background:"yellow"}}>
         <TableHead>
           <TableRow>
             <TableCell sx={{color:"red"}}>Coin Name</TableCell>
@@ -41,7 +45,7 @@ export default function HomePage() {
         <TableBody>
           { data?.map((coin: Coin) => (
             <TableRow key={coin.id}>
-              <TableCell>
+              <TableCell >
                 <Link href={`/assets/${coin.id}`}>
                 {coin.name}
                 </Link>

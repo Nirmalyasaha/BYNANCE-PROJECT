@@ -1,4 +1,4 @@
-import { HttpStatusCode } from "axios";
+import axios, { HttpStatusCode } from "axios";
 import axiosInstance from "../axiosinstance/api"
 import { endpoint } from "../endpoints/endpoint"
 
@@ -16,11 +16,11 @@ export const Fetchcoins = async () => {
 
 }
 export const DetailsCoins = async (id: string | number) => {
-    const res = await axiosInstance.get(`https://api.coincap.io/v2/assets/${id}`)
+    const res = await axios.get(`https://api.coincap.io/v2/assets/${id}`)
     return res.data.data
 }
-export const FetchHistory=async(id:String| number)=>{
-    const res = await axiosInstance.get(`https://api.coincap.io/v2/assets/${id}/history?interval=d1`)
+export const FetchHistory = async (id: String | number) => {
+    const res = await axios.get(`https://api.coincap.io/v2/assets/${id}/history?interval=d1`)
     return res
 }
 
@@ -28,19 +28,19 @@ export const FetchHistory=async(id:String| number)=>{
 
 //// market 
 export const MarketList = async () => {
-    const res = await axiosInstance.get(`https://api.coincap.io/v2/markets`);
+    const res = await axios.get(`https://api.coincap.io/v2/markets`);
     return res.data.data
 }
 
 
 ///// exchange list
 export const ExchangeList = async () => {
-    const res = await axiosInstance.get(`https://api.coincap.io/v2/exchanges`);
+    const res = await axiosInstance.get(`/exchanges`);
     return res.data.data
 }
 
 export const ExchangeIdData = async (id: string | number) => {
-    const res = await axiosInstance.get<any>(`'https://api.coincap.io/v2/exchanges/${id}`);
+    const res = await axiosInstance.get(`/exchanges/${id}`);
     return res.data?.data
 }
 
@@ -49,15 +49,15 @@ export const ExchangeIdData = async (id: string | number) => {
 // ////// rate page 
 
 
-export const RatePageData= async ()=>{
-    const res= await axiosInstance.get(`https://api.coincap.io/v2/rates`) ;
+export const RatePageData = async () => {
+    const res = await axios.get(`https://api.coincap.io/v2/rates`);
     return res?.data.data
 }
 
 
-export const RatePageID =async(id:String)=>{
-    const res = await axiosInstance.get(`https://api.coincap.io/v2/rates/${id}`)
-     return res?.data.data
+export const RatePageID = async (id: String) => {
+    const res = await axios.get(`https://api.coincap.io/v2/rates/${id}`)
+    return res?.data.data
 }
 
 

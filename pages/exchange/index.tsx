@@ -26,19 +26,21 @@ export default function Exchange(){
     console.log("exchange data:",data);
 
     return(
+      <>
+
         <TableContainer>
-        <Table>
+        <Table >
    <TableHead>
-     <TableRow>
+     <TableRow >
        <TableCell sx={{color:"red"}}>Coin Name</TableCell>
        <TableCell sx={{color:"red"}}>Price</TableCell>
        <TableCell sx={{color:"red"}}>Change</TableCell>
        <TableCell sx={{color:"red"}}>24h Volume</TableCell>
      </TableRow>
    </TableHead>
-   <TableBody>
+   <TableBody >
      { data?.map(( exData:ExchangeData, key:any) => (
-       <TableRow key={key}>
+       <TableRow key={key.exchangeId}>
          <TableCell>
             <Link href={`/exchange/${exData.exchangeId}`}>
          {exData.name}
@@ -62,7 +64,7 @@ export default function Exchange(){
  </Table>      
    </TableContainer>
 
-
+   </>
     )
 }
 
